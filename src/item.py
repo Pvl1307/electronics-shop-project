@@ -54,11 +54,9 @@ class Item:
 
     @classmethod
     def instantiate_from_csv(cls):
-        """
-        Инициализирует экземпляры класса Item данными из файла src/items.csv.
-        """
+        """Инициализирует экземпляры класса Item данными из файла src/items.csv."""
         cls.all.clear()
-        file = os.path.join('.', 'src', 'items.csv')
+        file = os.path.join(os.path.dirname(__file__), 'items.csv')
         with open(file, 'r') as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
@@ -70,4 +68,4 @@ class Item:
         """
         Статический метод, возвращающий число из числа-строки
         """
-        return int(str_number)
+        return int(float(str_number))
