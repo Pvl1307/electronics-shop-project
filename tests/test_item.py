@@ -43,3 +43,11 @@ def test_item_string_to_number():
     assert Item.string_to_number('1241231232134') == 1241231232134
     assert Item.string_to_number('6.0') == 6
     assert Item.string_to_number('4.5') == 4
+
+def test_item__repr__():
+    item = Item('Laptop Huawei d14', 13000, 13)
+    assert repr(item) == "Item('Laptop Huawei d14', 13000, 13)"
+
+def test_item__str__():
+    item = Item('Laptop Huawei d14', 13000, 13)
+    assert str(item) == 'Laptop Huawei d14'
