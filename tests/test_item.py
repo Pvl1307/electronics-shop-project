@@ -1,6 +1,7 @@
 import pytest
 from src.item import Item
 
+
 @pytest.fixture
 def item():
     return Item("Смартфон", 10000, 20)
@@ -14,6 +15,7 @@ def test_item_apply_discount(item):
     Item.pay_rate = 0.8
     item.apply_discount()
     assert item.price == 8000.0
+
 
 def test_item_name():
     item = Item('Smartphone', 100, 1)
@@ -44,10 +46,20 @@ def test_item_string_to_number():
     assert Item.string_to_number('6.0') == 6
     assert Item.string_to_number('4.5') == 4
 
+
 def test_item__repr__():
     item = Item('Laptop Huawei d14', 13000, 13)
     assert repr(item) == "Item('Laptop Huawei d14', 13000, 13)"
 
+
 def test_item__str__():
     item = Item('Laptop Huawei d14', 13000, 13)
     assert str(item) == 'Laptop Huawei d14'
+
+
+def test_item__add__():
+    item = Item('Laptop', 13000, 13)
+    item2 = Item('Laptop Air Pro Max', 13099, 52)
+    assert item + item2 == 65
+    assert item + 12 == None
+

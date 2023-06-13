@@ -75,3 +75,11 @@ class Item:
         Статический метод, возвращающий число из числа-строки
         """
         return int(float(str_number))
+
+    def __add__(self, other):
+        """
+        Складывает количество
+        """
+        if isinstance(other, Item):
+            return self.quantity + other.quantity
+        return None
