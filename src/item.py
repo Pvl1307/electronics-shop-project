@@ -82,4 +82,4 @@ class Item:
         """
         if isinstance(other, Item):
             return self.quantity + other.quantity
-        return None
+        raise TypeError("Нельзя сложить экземпляр Phone или Item с экземпляром другого класса.")
