@@ -61,5 +61,9 @@ def test_item__add__():
     item = Item('Laptop', 13000, 13)
     item2 = Item('Laptop Air Pro Max', 13099, 52)
     assert item + item2 == 65
-    assert item + 12 == None
 
+
+def test_item_addition_invalid_type():
+    item = Item("Item 1", 10, 5)
+    with pytest.raises(TypeError):
+        item + 10
