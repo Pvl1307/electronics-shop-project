@@ -4,9 +4,7 @@ from src.item import Item
 class Phone(Item):
     def __init__(self, name, price, quantity, number_of_sim):
         super().__init__(name, price, quantity)
-        self._number_of_sim = None
-
-        self.number_of_sim = number_of_sim
+        self._number_of_sim = number_of_sim
 
     @property
     def number_of_sim(self):
