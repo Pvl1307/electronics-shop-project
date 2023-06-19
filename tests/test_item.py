@@ -1,5 +1,6 @@
 import pytest
-from src.item import Item
+from src.item import Item, InstantiateCSVError
+import os
 
 
 @pytest.fixture
@@ -67,3 +68,13 @@ def test_item_addition_invalid_type():
     item = Item("Item 1", 10, 5)
     with pytest.raises(TypeError):
         item + 10
+
+
+def test_instantiate_from_csv_success():
+    Item.instantiate_from_csv()
+    assert Item.instantiate_from_csv('item.csv') == None
+
+
+def test_instantiate_from_csv_success():
+    Item.instantiate_from_csv()
+    assert len(Item.all) == 5
